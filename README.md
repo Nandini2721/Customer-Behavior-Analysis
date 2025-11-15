@@ -71,6 +71,10 @@ The Power BI dashboard includes:
 
 ---
 
+## Credits
+This project was inspired and guided by **[Amlan Mohanty](https://youtu.be/5PrZvPeUw60?si=r1ZoPZfNiCRQ36I4)**.  
+All datasets and learning material were taken from his video tutorial.
+
 
 without being too wordy. Do you want me to do that?
 
