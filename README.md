@@ -103,5 +103,4 @@ This project was inspired and guided by **[Amlan Mohanty](https://youtu.be/5PrZv
 All datasets and learning material were taken from his video tutorial.
 
 
-without being too wordy. Do you want me to do that?
 
