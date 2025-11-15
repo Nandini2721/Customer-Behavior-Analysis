@@ -92,6 +92,9 @@ The Power BI dashboard includes:
 * Discovered customer purchase patterns
 * Generated actionable insights for business strategy and decision-making
 * Presented insights in interactive reports and slides
+<img width="822" height="814" alt="image" src="https://github.com/user-attachments/assets/841726d6-7cc4-4a78-bf65-33c6ef4bef28" />
+<img width="585" height="395" alt="image" src="https://github.com/user-attachments/assets/e3dc347e-c5e2-417e-ab58-00a8dbcada54" />
+
 
 ---
 
