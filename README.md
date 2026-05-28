@@ -1,106 +1,109 @@
-# Customer-Behavior-Analysis
+# Customer Shopping Behavior Analysis
 
+An end-to-end data analytics project analyzing transactional data from **3,900 customers** to uncover spending patterns, customer segments, product preferences, and subscription behavior — using Python, SQL Server, and Power BI.
 
-## Overview
+---
 
-This project demonstrates an end-to-end data analytics workflow, including data loading, cleaning, exploratory analysis, SQL-based querying, visualization, reporting, and presentation. The objective is to extract actionable insights from datasets and present them in a clear, interactive format using Power BI and Gamma.
-<img width="4872" height="2656" alt="image" src="https://github.com/user-attachments/assets/70f44973-0081-47fd-afb7-cc61e163ad05" />
+## Dashboard Preview
 
+<img width="4872" height="2656" alt="Customer Behavior Dashboard" src="https://github.com/user-attachments/assets/70f44973-0081-47fd-afb7-cc61e163ad05" />
+
+---
+
+## Project Structure
+
+```
+├── customer_shopping_behavior.csv           # Raw dataset (3,900 rows, 18 columns)
+├── customer_shopping_behavior-checkpoint.ipynb  # Python EDA & ETL notebook
+├── SQLQuery1.sql                            # SQL analysis queries
+├── customer_behavior_dashboard.pbix         # Power BI dashboard file
+├── Customer Shopping Behavior Analysis.pdf  # Project report
+├── Customer-Shopping-Behavior-Analysis.pptx # Presentation
+└── Business Problem Document.pdf           # Problem statement
+```
 
 ---
 
 ## Dataset
 
-* **Source:** All datasets used in this project are from the referenced material.
-* **Description:** The datasets contain information related to e.g., customer, age ,gender , etc.
-* **Features:** Key columns include CustomerID, Product, Category, Sales, ReviewRating, etc.
-<img width="1920" height="1020" alt="Screenshot 2025-11-15 223000" src="https://github.com/user-attachments/assets/76977500-7d39-4e2c-ad1e-aedb8606acaf" />
+- **Rows:** 3,900 | **Columns:** 18
+- **Key features:** Customer ID, Age, Gender, Location, Item Purchased, Category, Purchase Amount (USD), Season, Review Rating, Subscription Status, Shipping Type, Discount Applied, Promo Code Used, Previous Purchases, Frequency of Purchases
+- **Missing data:** 37 null values in `review_rating` column
 
 ---
 
 ## Tools & Technologies
 
-* **Python:** Pandas for data loading, cleaning, and analysis
-* **SQL Server:** For running queries and aggregating insights
-* **Power BI:** Dashboard creation and interactive visualization
-* **Gamma:** For creating presentation slides
-* **Jupyter Notebook / VS Code:** Development environment
+| Tool | Purpose |
+|------|---------|
+| Python (Pandas, NumPy) | Data cleaning, feature engineering, EDA |
+| SQLAlchemy | Loading cleaned data into SQL Server |
+| SQL Server | Business queries and aggregations |
+| Power BI | Interactive dashboard and DAX measures |
+| Jupyter Notebook | Development environment |
 
 ---
 
-## Steps Performed
+## Workflow
 
-1. **Data Loading:** Imported datasets into Python using Pandas
-<img width="1914" height="801" alt="Screenshot 2025-11-15 223323" src="https://github.com/user-attachments/assets/0af28378-92ee-40b4-85b5-1f725a2fd664" />
+### 1. Data Cleaning & Feature Engineering (Python)
+- Loaded dataset using Pandas and inspected structure with `df.info()` and `df.describe()`
+- Imputed **37 missing Review Ratings** using category-wise median
+- Renamed columns to snake_case for consistency
+- Engineered two new features:
+  - `age_group` — binned customer ages into Young Adult, Adult, Middle-aged, Senior
+  - `purchase_frequency_days` — derived from purchase frequency data
+- Dropped redundant `promo_code_used` column after verifying overlap with `discount_applied`
+- Loaded cleaned DataFrame into SQL Server using SQLAlchemy
 
+### 2. SQL Analysis (10 Business Queries)
+Ran structured queries in SQL Server to answer key business questions:
 
- 
-2. **Exploratory Data Analysis (EDA):**
+| # | Query | Insight |
+|---|-------|---------|
+| 1 | Revenue by Gender | Male: $157,890 / Female: $75,191 |
+| 2 | High-Spending Discount Users | 839 customers spent above avg. despite discounts |
+| 3 | Top 5 Products by Rating | Gloves (3.86), Sandals (3.84), Boots (3.82) |
+| 4 | Shipping Type Comparison | Express ($60.48) vs Standard ($58.46) avg. spend |
+| 5 | Subscribers vs Non-Subscribers | Similar avg. spend (~$59.49 vs $59.87) |
+| 6 | Discount-Dependent Products | Hat (50%), Sneakers (49.66%), Coat (49.07%) |
+| 7 | Customer Segmentation | Loyal: 3,116 / Returning: 701 / New: 83 |
+| 8 | Top 3 Products per Category | Used window functions (RANK/PARTITION BY) |
+| 9 | Repeat Buyers & Subscriptions | 958 repeat buyers subscribed vs 2,518 not |
+| 10 | Revenue by Age Group | Young Adults contributed highest: $62,143 |
 
-   * Checked data types, missing values, and summary statistics
-   * Visualized distributions and relationships between features
-     <img width="1913" height="852" alt="Screenshot 2025-11-15 223448" src="https://github.com/user-attachments/assets/7bb8a983-5364-4d48-a4bb-fa7079eaf609" />
-
-
-3. **Data Cleaning:**
-
-   * Handled missing values
-   * Corrected inconsistencies
-   * Standardized columns for analysis
-<img width="1596" height="997" alt="Screenshot 2025-11-15 223632" src="https://github.com/user-attachments/assets/5cc3967e-e484-4e27-ad48-e47498365a4b" />
-<img width="1797" height="992" alt="image" src="https://github.com/user-attachments/assets/aef9b307-f3df-4204-8d73-bc03cde23b60" />
-
-
-      
-4. **SQL Analysis:**
-
-   * Loaded cleaned data into SQL Server
-   * Ran queries to extract insights such as top categories, total sales, and customer patterns
-<img width="1537" height="891" alt="image" src="https://github.com/user-attachments/assets/47b05592-cb28-4809-b2aa-95b145068cee" />
-<img width="1480" height="873" alt="image" src="https://github.com/user-attachments/assets/84cf6aaa-acb3-4b21-875b-ac41561b3204" />
-<img width="1296" height="715" alt="image" src="https://github.com/user-attachments/assets/604bfa2d-53fd-40e9-85e9-4e01072032ac" />
-
-      
-5. **Dashboard Creation:**
-
-   * Developed an interactive Power BI dashboard with key metrics and visualizations
-     <img width="1289" height="720" alt="Screenshot 2025-11-15 214502" src="https://github.com/user-attachments/assets/428d52b1-750e-4005-ba5e-f8a61a9861fe" />
-
-6. **Reporting & Presentation:**
-
-   * Summarized insights in a report
-   * Created a professional presentation in Gamma
-<img width="1105" height="887" alt="image" src="https://github.com/user-attachments/assets/0edf9766-2c9d-49f6-8c9b-b20101d86194" />
-<img width="1833" height="835" alt="image" src="https://github.com/user-attachments/assets/5f62ae2e-9567-4ed0-b0e6-84884b4b8d32" />
+### 3. Power BI Dashboard
+Built an interactive dashboard with:
+- **KPI Cards:** 3.9K customers, $59.76 avg. purchase amount, 3.75 avg. review rating
+- **DAX Measures:** Customer count (`COUNT`), average purchase amount (`AVERAGE`)
+- **Visuals:** Revenue by Category, Sales by Category, Revenue by Age Group, Sales by Age Group
+- **Donut Chart:** Subscription status breakdown (Yes 27% / No 73%)
+- **Slicers:** Gender, Category, Subscription Status, Shipping Type
 
 ---
 
-## Dashboard
+## Key Insights
 
-The Power BI dashboard includes:
-
-* Total Sales, Revenue, and Customer Metrics
-* Category-wise and Product-wise Analysis
-* Trends and patterns over time
-* Interactive filters for detailed exploration
+- **Young Adults** are the highest revenue-contributing age group ($62,143)
+- **Male customers** generate 2x the revenue of female customers
+- **Express shipping** users spend slightly more on average than standard shipping users
+- **839 customers** used discounts but still spent above average — high-value discount users
+- Only **27% of customers** are subscribers despite similar spending levels — opportunity to grow subscriptions
+- **Hat, Sneakers, and Coat** are the most discount-dependent products
 
 ---
 
-## Results
+## Business Recommendations
 
-* Identified top-performing products and categories
-* Discovered customer purchase patterns
-* Generated actionable insights for business strategy and decision-making
-* Presented insights in interactive reports and slides
-<img width="822" height="814" alt="image" src="https://github.com/user-attachments/assets/841726d6-7cc4-4a78-bf65-33c6ef4bef28" />
-<img width="585" height="395" alt="image" src="https://github.com/user-attachments/assets/e3dc347e-c5e2-417e-ab58-00a8dbcada54" />
-
+- **Boost Subscriptions** — promote exclusive benefits; subscribers and non-subscribers spend similarly, so conversion has low friction
+- **Reward Loyal Customers** — 3,116 loyal customers are the core segment; prioritize retention programs
+- **Review Discount Policy** — discount-heavy products (Hat, Sneakers) may be eroding margins unnecessarily
+- **Target Young Adults** — highest revenue group; focus marketing campaigns accordingly
+- **Highlight Top-Rated Products** — Gloves, Sandals, Boots have highest ratings; use in promotional content
 
 ---
 
 ## Credits
+
 This project was inspired and guided by **[Amlan Mohanty](https://youtu.be/5PrZvPeUw60?si=r1ZoPZfNiCRQ36I4)**.  
-All datasets and learning material were taken from his video tutorial.
-
-
-
+Dataset and learning material sourced from his tutorial.
