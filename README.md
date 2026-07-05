@@ -36,7 +36,7 @@ An end-to-end data analytics project analyzing transactional data from **3,900 c
 
 | Tool | Purpose |
 |------|---------|
-| Python (Pandas, NumPy) | Data cleaning, feature engineering, EDA |
+| Python (Pandas) | Data cleaning, feature engineering, EDA |
 | SQLAlchemy | Loading cleaned data into SQL Server |
 | SQL Server | Business queries and aggregations |
 | Power BI | Interactive dashboard and DAX measures |
