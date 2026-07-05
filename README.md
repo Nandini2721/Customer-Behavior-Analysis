@@ -100,7 +100,8 @@ Built an interactive dashboard with:
 - **Review Discount Policy** — discount-heavy products (Hat, Sneakers) may be eroding margins unnecessarily
 - **Target Young Adults** — highest revenue group; focus marketing campaigns accordingly
 - **Highlight Top-Rated Products** — Gloves, Sandals, Boots have highest ratings; use in promotional content
-- **Investigate Gender Gap in Subscriptions** — 0% of female customers hold an active subscription vs. ~40% of male customers; before broader subscription marketing, understand why the program isn't reaching or resonating with women
+- **Investigate Gender Gap in Subscriptions** — 0% of female customers hold an active subscription vs. ~40% of male customers; This suggests the subscription program's 
+  reach or appeal may be significantly skewed by gender
   
 ---
 
